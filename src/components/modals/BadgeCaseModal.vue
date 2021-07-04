@@ -1,0 +1,201 @@
+<template>
+  <CardModal
+    name="badgecase"
+    title="Badge Case"
+  >
+    <template #body>
+      <div id="badges">
+        <div id="kantoBadges">
+          <h4>Kanto Badges</h4><br>
+          <button
+            id="boulderBadge"
+            style="visibility:hidden"
+            class="button"
+            @click="ui.renderBoulderBadge()"
+          />
+          <button
+            id="cascadeBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="thunderBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="rainbowBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="soulBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="marshBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="volcanoBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="earthBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+        </div>
+        <hr>
+        <div id="johtoBadges">
+          <h4>Johto Badges</h4><br>
+          <button
+            id="zephyrBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="hiveBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="plainBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="fogBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="stormBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="mineralBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="glacierBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="risingBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+        </div>
+        <hr>
+        <div id="hoennBadges">
+          <h4>Hoenn Badges</h4><br>
+          <button
+            id="stoneBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="knuckleBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="dynamoBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="heatBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="balanceBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="featherBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="mindBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="rainBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+        </div>
+        <hr>
+        <div id="sinnohBadges">
+          <h4>Sinnoh Badges</h4><br>
+          <button
+            id="coalBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="forestBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="cobbleBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="fenBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="relicBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="mineBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="icicleBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+          <button
+            id="beaconBadge"
+            style="visibility:hidden"
+            class="button"
+          />
+        </div>
+      </div>
+    </template>
+  </CardModal>
+</template>
+
+<script>
+import CardModal from '../common/CardModal.vue';
+
+export default {
+    components: {
+        CardModal,
+    },
+
+    props: {
+        ui: { type: Object, required: true },
+    },
+};
+</script>
