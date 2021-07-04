@@ -15,15 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/unclebanks/unclebanks.github.io.git"
+    "url": "git+https://github.com/unclebanks/OtherNamelessGame.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/unclebanks/unclebanks.github.io/issues"
+    "url": "https://github.com/unclebanks/OtherNameslessgame/issues"
   },
-  "homepage": "https://github.com/unclebanks/unclebanks.github.io#readme",
+  "homepage": "https://github.com/unclebanks/OtherNamelessGame#readme",
   "babel": {
     "extends": "./.config/.babelrc"
   },
