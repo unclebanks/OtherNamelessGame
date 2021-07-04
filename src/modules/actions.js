@@ -442,37 +442,8 @@ export default (player, combatLoop, enemy, town, story, appModel) => {
         enterCode: function () {
             // eslint-disable-next-line prefer-const
             let secretCode = prompt('Please enter your secret code', 'Secret Code');
-            const rando = Math.round(Math.random() * 898);
             if (secretCode === 'Charmander' && !player.secretCodes.charmander) {
-                player.addPoke(new Poke(pokeByName('Charmander'), 50));
-                player.secretCodes.charmander = true;
-            } else if (secretCode === 'skipToTheEnd') {
-                player.badges['Earth Badge'] = true;
-                player.badges['Rising Badge'] = true;
-            } else if (secretCode === 'ColdOre' && !player.secretCodes.coldOre) {
-                player.addPoke(new Poke(pokeByName('Roggenrola'), 10));
-                player.secretCodes.coldOre = true;
-            } else if (secretCode === 'randoooo' && player.secretCodes.rando != true) {
-                player.addPoke(new Poke(pokeByIndex(rando), 5));
-                player.secretCodes.rando = true;
-            } else if (secretCode === 'SHINYOMG' && player.secretCodes.shiny != true) {
-                player.addPoke(new Poke(pokeByIndex(rando), 5, null, true));
-                player.secretCodes.shiny = true;
-            } else if (secretCode === 'gardevoir' && !player.secretCodes.gardevoir) {
-                player.addPoke(new Poke(pokeByName('Ralts'), 12));
-                player.secretCodes.gardevoir = true;
-            } else if (secretCode === 'Apple' && !player.secretCodes.apple) {
-                player.addPoke(new Poke(pokeByName('Rayquaza'), 1));
-                player.secretCodes.apple = true;
-            } else if (secretCode === 'Krush' && !player.secretCodes.krush) {
-                player.addPoke(new Poke(pokeByName('Garchomp'), 55));
-                player.secretCodes.krush = true;
-            } else if (secretCode === 'Bulbasaur' && !player.secretCodes.bulbasaur) {
-                player.addPoke(new Poke(pokeByName('Bulbasaur'), 5));
-                player.secretCodes.bulbasaur = true;
-            } else if (secretCode === 'MaimahsPo' && !player.secretCodes.bulbasaur) {
-                player.addPoke(new Poke(pokeByName('Pancham'), 5));
-                player.secretCodes.maimahspo = true;
+                alert('This is a placeholder');
             } else {
                 alert('Code Invalid or Already Claimed');
             }
@@ -997,11 +968,18 @@ export default (player, combatLoop, enemy, town, story, appModel) => {
             } else { alert('Hiya! I work as an Aide. Be sure to talk to other NPCs as well. Some of us do stuff, others not so much.'); }
         },
         oakLabOak: function () {
-            if (player.hasPokemon('Squirtle') && player.hasPokemon('Charmander') && player.hasPokemon('Bulbasaur')) {
+            if (player.countPokedex(5) > 40 && !player.unlocked.kantoFirstStagePass) {
                 alert('Great job on catching the Kanto region starters. Take this Pass to unlock deeper areas previously inaccessible.');
                 player.unlocked.kantoFirstStagePass = true;
+                dom.renderRouteList();
             } else if (!player.unlocked.kantoFirstStagePass) {
                 alert('It seems you need to research Pokemon a bit more thoroughly before I can grant you access to other areas.');
+            } else if (player.countPokedex(5) < 80 && !player.unlocked.kantoSecondStagePass) {
+                alert('Keep researching more pokemon to unlock more areas.');
+            } else if (player.countPokedex(5) > 80 && !player.unlocked.kantoSecondStagePass) {
+                alert('You have been an excellent help with my research. Take this Second Stage Pass to explore new areas.');
+                player.unlocked.kantoSecondStagePass = true;
+                dom.renderRouteList();
             } else { alert('More to come, check back soon'); }
         },
         blueOakLab: function () {
