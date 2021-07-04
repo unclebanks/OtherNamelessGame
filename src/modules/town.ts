@@ -479,21 +479,6 @@ class Town {
         this.catchcoinShops = {
             kanto: [
                 {
-                    name: 'Old Rod',
-                    catchcoins: 100,
-                    unlockable: 'kantoOldRod',
-                },
-                {
-                    name: 'Good Rod',
-                    catchcoins: 1000,
-                    unlockable: 'kantoGoodRod',
-                },
-                {
-                    name: 'Super Rod',
-                    catchcoins: 10000,
-                    unlockable: 'kantoSuperRod',
-                },
-                {
                     name: 'Thunder Stone',
                     catchcoins: 1000,
                     evoStones: 'thunderStone',
@@ -520,21 +505,6 @@ class Town {
                 },
             ],
             johto: [
-                {
-                    name: 'Old Rod',
-                    catchcoins: 100,
-                    unlockable: 'johtoOldRod',
-                },
-                {
-                    name: 'Good Rod',
-                    catchcoins: 1000,
-                    unlockable: 'johtoGoodRod',
-                },
-                {
-                    name: 'Super Rod',
-                    catchcoins: 10000,
-                    unlockable: 'johtoSuperRod',
-                },
                 {
                     name: 'Sun Stone',
                     catchcoins: 1000,
@@ -563,42 +533,12 @@ class Town {
             ],
             hoenn: [
                 {
-                    name: 'Old Rod',
-                    catchcoins: 100,
-                    unlockable: 'hoennOldRod',
-                },
-                {
-                    name: 'Good Rod',
-                    catchcoins: 1000,
-                    unlockable: 'hoennGoodRod',
-                },
-                {
-                    name: 'Super Rod',
-                    catchcoins: 10000,
-                    unlockable: 'hoennSuperRod',
-                },
-                {
                     name: 'Kings Rock',
                     catchcoins: 1000,
                     evoStones: 'kingsRock',
                 },
             ],
             sinnoh: [
-                {
-                    name: 'Old Rod',
-                    catchcoins: 100,
-                    unlockable: 'sinnohOldRod',
-                },
-                {
-                    name: 'Good Rod',
-                    catchcoins: 1000,
-                    unlockable: 'sinnohGoodRod',
-                },
-                {
-                    name: 'Super Rod',
-                    catchcoins: 10000,
-                    unlockable: 'sinnohSuperRod',
-                },
                 {
                     name: 'Dusk Stone',
                     catchcoins: 1000,
@@ -612,54 +552,19 @@ class Town {
             ],
             unova: [
                 {
-                    name: 'Old Rod',
-                    catchcoins: 100,
-                    unlockable: 'unovaOldRod',
-                },
-                {
-                    name: 'Good Rod',
-                    catchcoins: 1000,
-                    unlockable: 'unovaGoodRod',
-                },
-                {
-                    name: 'Super Rod',
+                    name: 'Ice Stone',
                     catchcoins: 10000,
-                    unlockable: 'unovaSuperRod',
+                    evoStones: 'iceStone',
                 },
             ],
             kalos: [
                 {
-                    name: 'Old Rod',
-                    catchcoins: 100,
-                    unlockable: 'kalosOldRod',
-                },
-                {
-                    name: 'Good Rod',
-                    catchcoins: 1000,
-                    unlockable: 'kalosGoodRod',
-                },
-                {
-                    name: 'Super Rod',
+                    name: 'Ice Stone',
                     catchcoins: 10000,
-                    unlockable: 'kalosSuperRod',
+                    evoStones: 'iceStone',
                 },
             ],
             alola: [
-                {
-                    name: 'Old Rod',
-                    catchcoins: 100,
-                    unlockable: 'alolaOldRod',
-                },
-                {
-                    name: 'Good Rod',
-                    catchcoins: 1000,
-                    unlockable: 'alolaGoodRod',
-                },
-                {
-                    name: 'Super Rod',
-                    catchcoins: 10000,
-                    unlockable: 'alolaSuperRod',
-                },
                 {
                     name: 'Ice Stone',
                     catchcoins: 10000,

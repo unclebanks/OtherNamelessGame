@@ -34,14 +34,10 @@ export default (player, combatLoop, userInteractions) => {
         renderPokeOnContainer: function (id, poke, face) {
             const container = $(`#${id}Box`).querySelector('.pokeBox');
             const townBox = $('#townBox');
-            const gymButton = $('#gymButton');
             if (!poke) {
                 container.style.display = 'none';
                 if (id == 'enemy') {
                     townBox.style.display = 'block';
-                    const route = ROUTES[player.settings.currentRegionId][player.settings.currentRouteId];
-                    gymButton.style.display = (route.gym) ? '' : 'none';
-                    gymButton.innerHTML = (route.gym) ? route.gym.name : '';
                 }
                 return null;
             }
@@ -193,18 +189,6 @@ export default (player, combatLoop, userInteractions) => {
             this.renderBattleCoins();
             this.renderCatchCoins();
             this.renderPokeCoins();
-        },
-        renderRevive: function () {
-            const reviveElement = $('#revive');
-            reviveElement.innerHTML = player.battleItems.revive;
-        },
-        renderMaxRevive: function () {
-            const maxReviveElement = $('#maxRevive');
-            maxReviveElement.innerHTML = player.battleItems.maxRevive;
-        },
-        renderBattleItems: function () {
-            this.renderRevive();
-            this.renderMaxRevive();
         },
         refreshCatchOption: function (setCatchOption) {
             $('#enableCatchNew').checked = false;

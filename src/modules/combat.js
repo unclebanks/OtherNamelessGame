@@ -18,12 +18,9 @@ export default (player, enemy) => {
         paused: false,
         prof: null,
         profPoke: {},
-        gymLeader: null,
-        gymLeaderPoke: {},
         npc: null,
         npcPoke: {},
         profCurrentID: 0,
-        gymLeaderCurrentID: 0,
         npcCurrentID: 0,
         enemyActivePoke: null,
         playerTimerId: null,
@@ -200,30 +197,6 @@ export default (player, enemy) => {
                     return false;
                 }
             }
-            // was it a gymLeader poke
-            if (Combat.gymLeader) {
-            // remove the pokemon
-                Combat.gymLeaderPoke.splice(Combat.gymLeaderCurrentID, 1);
-                const foundBattleCoins = Math.floor(Combat.enemyActivePoke.level() * Combat.gymLeaderPoke.length) + 5;
-                player.addBattleCoins(foundBattleCoins);
-                if (Combat.gymLeaderPoke.length < 1) {
-                    if (Combat.gymLeader.badge) {
-                        if (!player.badges[Combat.gymLeader.badge]) {
-                            player.badges[Combat.gymLeader.badge] = true;
-                            dom.renderRouteList();
-                        }
-                    }
-                    if (Combat.gymLeader.win) {
-                        if (!player.wins[Combat.gymLeader.win]) {
-                            player.wins[Combat.gymLeader.win] = true;
-                            dom.renderRouteList();
-                        }
-                    }
-                    Combat.gymLeader = null;
-                    Combat.pause();
-                    return false;
-                }
-            }
 
             if (player.checkBoostedRoamer()) {
                 dom.renderRouteList();
@@ -238,8 +211,6 @@ export default (player, enemy) => {
         newEnemy: function () {
             if (Combat.prof) {
                 enemy.profPoke(Combat.profPoke);
-            } else if (Combat.gymLeader) {
-                enemy.gymLeaderPoke(Combat.gymLeaderPoke);
             } else if (Combat.npc) {
                 enemy.npcPoke(Combat.npcPoke);
             } else {
@@ -263,10 +234,6 @@ export default (player, enemy) => {
                     Combat.prof = null;
                     Combat.pause();
                 }
-                if (Combat.gymLeader) {
-                    Combat.gymLeader = null;
-                    Combat.pause();
-                }
                 if (Combat.npc) {
                     Combat.npc = null;
                     Combat.pause();
@@ -280,7 +247,7 @@ export default (player, enemy) => {
         },
         attemptCatch: function () {
             if (
-                !Combat.prof && !Combat.gymLeader && !Combat.npc && (
+                !Combat.prof && !Combat.npc && (
                     (Combat.catchEnabled == 'all')
                     || (Combat.catchEnabled == 'new' && !player.hasPokemonLike(enemy.activePoke()))
                 )

@@ -4,18 +4,6 @@ interface UnlockData {
     badges: Record<string, boolean>,
 }
 
-interface GymLeader {
-    name: string,
-    poke: Array<[PokemonNameType, number]>,
-    badge?: string,
-    win?: string,
-    reward?: string,
-    event?: string,
-    megaStone?: string,
-    megaStones?: string[],
-    req?: string,
-}
-
 type ItemSpecialRequirement = {
     type: 'item',
     item: string, // do you have a proper "item" type?
@@ -39,100 +27,6 @@ interface SpecialPokemon {
     pokemon: PokemonNameType[],
   }
 
-interface GymTrainer1 {
-    name: string,
-    poke: Array<[PokemonNameType, number]>,
-    win?: string,
-    reward?: string,
-    event?: string,
-    req?: string,
-}
-
-interface GymTrainer2 {
-    name: string,
-    poke: Array<[PokemonNameType, number]>,
-    req?: string,
-    win?: string,
-    reward?: string,
-    event?: string,
-}
-
-interface GymTrainer3 {
-    name: string,
-    poke: Array<[PokemonNameType, number]>,
-    req?: string,
-    win?: string,
-    reward?: string,
-    event?: string,
-}
-
-interface EliteFour1 {
-    name: string,
-    poke: Array<[PokemonNameType, number]>,
-    win?: string,
-    reward?: string,
-    event?: string,
-    megaStone?: string,
-    megaStones?: string[],
-}
-
-interface EliteFour2 {
-    name: string,
-    poke: Array<[PokemonNameType, number]>,
-    req?: string,
-    win?: string,
-    reward?: string,
-    event?: string,
-    megaStone?: string,
-    megaStones?: string[],
-}
-
-interface EliteFour3 {
-    name: string,
-    poke: Array<[PokemonNameType, number]>,
-    req?: string,
-    win?: string,
-    reward?: string,
-    event?: string,
-    megaStone?: string,
-    megaStones?: string[],
-}
-
-interface EliteFour4 {
-    name: string,
-    poke: Array<[PokemonNameType, number]>,
-    req?: string,
-    win?: string,
-    reward?: string,
-    event?: string,
-    megaStone?: string,
-    megaStones?: string[],
-}
-
-interface EliteFourChampion {
-    name: string,
-    poke: Array<[PokemonNameType, number]>,
-    req?: string,
-    win?: string,
-    reward?: string,
-    event?: string,
-    megaStone?: string,
-    megaStones?: string[],
-}
-
-interface Gym {
-    name: string,
-    gymLeader?: GymLeader,
-    gymTrainer1?: GymTrainer1,
-    gymTrainer2?: GymTrainer2,
-    gymTrainer3?: GymTrainer3,
-    eliteFour1?: EliteFour1,
-    eliteFour2?: EliteFour2,
-    eliteFour3?: EliteFour3,
-    eliteFour4?: EliteFour4,
-    eliteFourChampion?: EliteFourChampion,
-}
-
 interface NPC {
     name: string,
     poke?: Array<[PokemonNameType, number]>,
@@ -152,7 +46,6 @@ interface Town {
     name: string,
     town: true,
     prof?: Professor,
-    gym?: Gym,
     pokeMart?: true,
     npc?: NPC,
     story? : Story,
@@ -170,12 +63,6 @@ interface Route {
     modal?: string,
     _unlock?: UnlockData,
     _special?: SpecialPokemon[],
-
-    // Need to do something about these, can probably be made into
-    // an unlock condition and become part of UnlockData.
-    kantoOldRod?: 1
-    kantoGoodRod?: 1
-    kantoSuperRod?: 1
 }
 
 interface RegionData {
@@ -211,73 +98,137 @@ const ROUTES: Routes = {
             },
             pokeMart: true,
         },
-        kViridianForest: {
-            name: 'Viridian Forest',
-            pokes: ['Bulbasaur', 'Caterpie', 'Weedle', 'Pidgey', 'Spearow', 'Pikachu', 'Oddish', 'Bellsprout'],
+        kantoPlains: {
+            name: 'Plains',
+            pokes: ['Rattata', 'Nidoran F', 'Nidoran M', 'Doduo', 'Oddish', 'Ekans', 'Jigglypuff', 'Lickitung', 'Drowzee', 'Tauros', 'Vulpix', 'Ponyta', 'Electabuzz', 'Growlithe', 'Bulbasaur'],
             minLevel: 2,
             maxLevel: 5,
             respawn: 'palletTown',
             _special: [
                 { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Ivysaur'] },
-                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Kakuna'] },
-                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Metapod'] },
-                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Pidgeotto'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Nidorina'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Nidorino'] },
                 { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Gloom'] },
-                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Weepinbell'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Raticate'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Arbok'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Tangela'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Wigglytuff'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Farfetchd'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Hypno'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Rapidash'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Arcanine'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Scyther'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Kangaskhan'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Ninetales'] },
                 { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Venusaur'] },
-                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Beedrill'] },
-                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Butterfree'] },
-                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Pidgeot'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Nidoking'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Nidoqueen'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Dodrio'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Vileplume'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Nidoking'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Nidoqueen'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Dodrio'] },
             ],
         },
-        kMtMoon: {
-            name: 'Mt. Moon',
-            pokes: ['Sandshrew', 'Nidoran F', 'Nidoran M', 'Clefairy', 'Zubat', 'Paras', 'Meowth', 'Geodude', 'Onix'],
+        kantoForest: {
+            name: 'Forest',
+            pokes: ['Caterpie', 'Weedle', 'Pidgey', 'Pikachu', 'Bellsprout', 'Paras', 'Venonat', 'Exeggcute', 'Rattata', 'Ekans'],
             minLevel: 10,
             maxLevel: 20,
             respawn: 'palletTown',
             _special: [
-                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Nidorina'] },
-                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Nidorino'] },
-                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Golbat'] },
-                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Graveler'] },
-                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Sandslash'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Kakuna'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Metapod'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Pidgeotto'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Weepinbell'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Raichu'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Raticate'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Arbok'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Beedrill'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Butterfree'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Pidgeot'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Victreebel'] },
                 { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Parasect'] },
-                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Persian'] },
-                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Eevee'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Venomoth'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Exeggutor'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Pinsir'] },
             ],
         },
-        kRockTunnel: {
-            name: 'Rock Tunnel',
-            pokes: ['Charmander', 'Zubat', 'Mankey', 'Abra', 'Geodude', 'Onix', 'Drowzee', 'Cubone'],
+        kantoLake: {
+            name: 'Lake',
+            pokes: ['Squirtle', 'Psyduck', 'Slowpoke', 'Shellder', 'Krabby', 'Horsea', 'Staryu', 'Goldeen', 'Magikarp', 'Poliwag', 'Dratini'],
+            minLevel: 30,
+            maxLevel: 40,
+            respawn: 'palletTown',
+            _special: [
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Wartortle'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Poliwhirl'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Dragonair'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Seaking'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Seadra'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Kingler'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Cloyster'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Blastoise'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Golduck'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Slowbro'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Starmie'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Gyarados'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Poliwrath'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Dragonite'] },
+            ],
+        },
+        kantoSea: {
+            name: 'Sea',
+            pokes: ['Tentacool', 'Staryu', 'Shellder', 'Seel', 'Horsea', 'Lapras', 'Omanyte', 'Kabuto', 'Squirtle', 'Krabby'],
+            minLevel: 30,
+            maxLevel: 40,
+            respawn: 'palletTown',
+            _special: [
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Wartortle'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Poliwhirl'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Starmie'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Seaking'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Seadra'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Kingler'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Cloyster'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Blastoise'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Starmie'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Dewgong'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Lapras'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Omastar'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Kabutops'] },
+            ],
+        },
+        kantoCave: {
+            name: 'Cave',
+            pokes: ['Charmander', 'Zubat', 'Diglett', 'Gastly', 'Mankey', 'Machop', 'Clefairy', 'Abra', 'Geodude', 'Onix', 'Drowzee', 'Cubone'],
             minLevel: 20,
             maxLevel: 30,
             respawn: 'palletTown',
             _special: [
                 { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Charmeleon'] },
                 { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Golbat'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Dugtrio'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Haunter'] },
                 { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Kadabra'] },
                 { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Graveler'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Machoke'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Magmar'] },
+                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Clefable'] },
                 { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Charizard'] },
                 { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Primeape'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Machamp'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Alakazam'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Gengar'] },
+                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Golem'] },
                 { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Hypno'] },
                 { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Marowak'] },
                 { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Snorlax'] },
             ],
         },
-        kDiglettsCave: {
-            name: 'Diglett\'s Cave',
-            pokes: ['Diglett'],
-            minLevel: 10,
-            maxLevel: 20,
-            respawn: 'palletTown',
-            _special: [
-                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Dugtrio'] },
-            ],
-        },
-        kSafariZone: {
-            name: 'Safari Zone',
-            pokes: ['Weedle', 'Caterpie', 'Nidoran F', 'Nidoran M', 'Paras', 'Venonat', 'Farfetchd', 'Exeggcute', 'Rhyhorn'],
+        kantoField: {
+            name: 'Field',
+            pokes: ['Spearow'],
             minLevel: 30,
             maxLevel: 40,
             respawn: 'palletTown',
@@ -300,8 +251,8 @@ const ROUTES: Routes = {
                 { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Pinsir'] },
             ],
         },
-        kPowerPLant: {
-            name: 'Power Plant',
+        kantoTown: {
+            name: 'Town',
             pokes: ['Pikachu', 'Magnemite', 'Grimer', 'Voltorb'],
             minLevel: 20,
             maxLevel: 30,
@@ -315,27 +266,6 @@ const ROUTES: Routes = {
                 { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Electrode'] },
                 { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Porygon'] },
                 { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Zapdos'] },
-            ],
-        },
-        kSeafoamIslands: {
-            name: 'Seafoam Islands',
-            pokes: ['Squirtle', 'Psyduck', 'Slowpoke', 'Seel', 'Shellder', 'Krabby', 'Horsea', 'Staryu'],
-            minLevel: 30,
-            maxLevel: 40,
-            respawn: 'palletTown',
-            _special: [
-                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Wartortle'] },
-                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Jynx'] },
-                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Kingler'] },
-                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Seadra'] },
-                { requirement: { type: 'item', item: 'kantoFirstStagePass' }, pokemon: ['Starmie'] },
-                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Blastoise'] },
-                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Golduck'] },
-                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Slowbro'] },
-                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Dewgong'] },
-                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Cloyster'] },
-                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Lapras'] },
-                { requirement: { type: 'item', item: 'kantoSecondStagePass' }, pokemon: ['Articuno'] },
             ],
         },
         kPokemonMansion: {
@@ -370,30 +300,6 @@ const ROUTES: Routes = {
             minLevel: 60,
             maxLevel: 70,
             respawn: 'palletTown',
-        },
-        kOldRod: {
-            name: 'Kanto Old Rod',
-            pokes: ['Magikarp'],
-            minLevel: 5,
-            maxLevel: 5,
-            respawn: 'palletTown',
-            kantoOldRod: 1,
-        },
-        kGoodRod: {
-            name: 'Kanto Good Rod',
-            pokes: ['Poliwag', 'Goldeen', 'Magikarp'],
-            minLevel: 5,
-            maxLevel: 15,
-            respawn: 'palletTown',
-            kantoGoodRod: 1,
-        },
-        kSuperRod: {
-            name: 'Kanto Super Rod',
-            pokes: ['Psyduck', 'Poliwag', 'Poliwhirl', 'Tentacool', 'Tentacruel', 'Slowpoke', 'Slowbro', 'Shellder', 'Krabby', 'Kingler', 'Horsea', 'Seadra', 'Goldeen', 'Seaking', 'Staryu', 'Magikarp', 'Gyarados', 'Dratini', 'Dragonair'],
-            minLevel: 5,
-            maxLevel: 40,
-            respawn: 'palletTown',
-            kantoSuperRod: 1,
         },
     },
 };

@@ -31,13 +31,6 @@
       >
         TOWN
       </button><br>
-      <button
-        id="gymButton"
-        onclick="userInteractions.viewGym()"
-        class="button"
-      >
-        PROFESSOR BATTLE
-      </button>
     </div>
     <a
       id="openMenu"

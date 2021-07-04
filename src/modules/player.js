@@ -15,7 +15,7 @@ export default (lastSave, appModel) => {
         lastHeal: Date.now(),
         currentBoostedRoamer: {
             region: 'Kanto',
-            route: '1',
+            route: 'kantoPlains',
             pokemon: 'Raikou',
             start: 0,
             length: 5 * 60 * 1000,
@@ -115,7 +115,7 @@ export default (lastSave, appModel) => {
         },
         settings: {
             currentRegionId: 'Kanto',
-            currentRouteId: 'kViridianForest',
+            currentRouteId: 'kantoPlains',
             listView: 'pokeDex',
             autoSort: true,
             dexView: 'all',
@@ -328,15 +328,6 @@ export default (lastSave, appModel) => {
         },
         routeUnlocked: function (region, route) {
             const routeData = ROUTES[region][route];
-            if (routeData.kantoOldRod && !Player.unlocked.kantoOldRod) {
-                return false;
-            }
-            if (routeData.kantoGoodRod && !Player.unlocked.kantoGoodRod) {
-                return false;
-            }
-            if (routeData.kantoSuperRod && !Player.unlocked.kantoSuperRod) {
-                return false;
-            }
             if (routeData._unlock) {
                 return this.meetsCriteria(routeData._unlock);
             }
