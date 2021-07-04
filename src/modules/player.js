@@ -417,39 +417,39 @@ export default (lastSave, appModel) => {
         // Don't save more then every 60 seconds
             if (force || (lastSave + (1000 * 60) < Date.now())) {
                 lastSave = Date.now();
-                localStorage.setItem('totalPokes', appModel.$store.state.pokemon.party.length);
+                localStorage.setItem('othertotalPokes', appModel.$store.state.pokemon.party.length);
                 appModel.$store.state.pokemon.party.forEach((poke, index) => {
-                    localStorage.setItem(`poke${index}`, JSON.stringify(poke.save()));
+                    localStorage.setItem(`otherpoke${index}`, JSON.stringify(poke.save()));
                 });
-                localStorage.setItem('totalStorage', appModel.$store.state.pokemon.storage.length);
+                localStorage.setItem('othertotalStorage', appModel.$store.state.pokemon.storage.length);
                 appModel.$store.state.pokemon.storage.forEach((poke, index) => {
-                    localStorage.setItem(`storage${index}`, JSON.stringify(poke.save()));
+                    localStorage.setItem(`otherstorage${index}`, JSON.stringify(poke.save()));
                 });
                 localStorage.setItem(
                     'pinnedStorage',
                     JSON.stringify([...appModel.$store.state.pokemon.pinnedStorage]),
                 );
-                localStorage.setItem('totalPokeFarm', appModel.$store.state.pokemon.pokeFarm.length);
+                localStorage.setItem('othertotalPokeFarm', appModel.$store.state.pokemon.pokeFarm.length);
                 appModel.$store.state.pokemon.pokeFarm.forEach((poke, index) => {
-                    localStorage.setItem(`pokeFarm${index}`, JSON.stringify(poke.save()));
+                    localStorage.setItem(`otherpokeFarm${index}`, JSON.stringify(poke.save()));
                 });
-                localStorage.setItem('ballsAmount', JSON.stringify(this.ballsAmount));
-                localStorage.setItem('battleItems', JSON.stringify(this.battleItems));
-                localStorage.setItem('vitamins', JSON.stringify(this.vitamins));
-                localStorage.setItem('pokedexData', JSON.stringify(this.getPokedexData()));
-                localStorage.setItem('statistics', JSON.stringify(this.statistics));
-                localStorage.setItem('statisticsRequirements', JSON.stringify(this.statisticsRequirements));
-                localStorage.setItem('settings', JSON.stringify(this.settings));
-                localStorage.setItem('badges', JSON.stringify(this.badges));
-                localStorage.setItem('wins', JSON.stringify(this.wins));
-                localStorage.setItem('events', JSON.stringify(this.events));
-                localStorage.setItem('unlocked', JSON.stringify(this.unlocked));
-                localStorage.setItem('megaStones', JSON.stringify(this.megaStones));
-                localStorage.setItem('secretCodes', JSON.stringify(this.secretCodes));
-                localStorage.setItem('evoStones', JSON.stringify(this.evoStones));
-                localStorage.setItem('currencyAmount', JSON.stringify(this.currencyAmount));
-                localStorage.setItem('defeatedWith', JSON.stringify(this.defeatedWith));
-                localStorage.setItem('currentBoostedRoamer', JSON.stringify(this.currentBoostedRoamer));
+                localStorage.setItem('otherballsAmount', JSON.stringify(this.ballsAmount));
+                localStorage.setItem('otherbattleItems', JSON.stringify(this.battleItems));
+                localStorage.setItem('othervitamins', JSON.stringify(this.vitamins));
+                localStorage.setItem('otherpokedexData', JSON.stringify(this.getPokedexData()));
+                localStorage.setItem('otherstatistics', JSON.stringify(this.statistics));
+                localStorage.setItem('otherstatisticsRequirements', JSON.stringify(this.statisticsRequirements));
+                localStorage.setItem('othersettings', JSON.stringify(this.settings));
+                localStorage.setItem('otherbadges', JSON.stringify(this.badges));
+                localStorage.setItem('otherwins', JSON.stringify(this.wins));
+                localStorage.setItem('otherevents', JSON.stringify(this.events));
+                localStorage.setItem('otherunlocked', JSON.stringify(this.unlocked));
+                localStorage.setItem('othermegaStones', JSON.stringify(this.megaStones));
+                localStorage.setItem('othersecretCodes', JSON.stringify(this.secretCodes));
+                localStorage.setItem('otherevoStones', JSON.stringify(this.evoStones));
+                localStorage.setItem('othercurrencyAmount', JSON.stringify(this.currencyAmount));
+                localStorage.setItem('otherdefeatedWith', JSON.stringify(this.defeatedWith));
+                localStorage.setItem('othercurrentBoostedRoamer', JSON.stringify(this.currentBoostedRoamer));
             }
         },
         saveToString: function () {
@@ -485,8 +485,8 @@ export default (lastSave, appModel) => {
             // reset storage array
             const storage = [];
             const pokeFarm = [];
-            Array(Number(localStorage.getItem('totalPokes'))).fill(0).forEach((el, index) => {
-                const loadedPoke = JSON.parse(localStorage.getItem(`poke${index}`));
+            Array(Number(localStorage.getItem('othertotalPokes'))).fill(0).forEach((el, index) => {
+                const loadedPoke = JSON.parse(localStorage.getItem(`otherpoke${index}`));
                 if (loadedPoke) {
                     const pokeName = loadedPoke[0];
                     const exp = loadedPoke[1];
@@ -502,8 +502,8 @@ export default (lastSave, appModel) => {
                     pokeCount++;
                 }
             });
-            Array(Number(localStorage.getItem('totalStorage'))).fill(0).forEach((el, index) => {
-                const loadedPoke = JSON.parse(localStorage.getItem(`storage${index}`));
+            Array(Number(localStorage.getItem('othertotalStorage'))).fill(0).forEach((el, index) => {
+                const loadedPoke = JSON.parse(localStorage.getItem(`otherstorage${index}`));
                 if (loadedPoke) {
                     const pokeName = loadedPoke[0];
                     const exp = loadedPoke[1];
@@ -514,8 +514,8 @@ export default (lastSave, appModel) => {
                     storage.push(new Poke(pokeByName(pokeName), false, Number(exp), shiny, caughtAt, prestigeLevel, appliedVitamins));
                 }
             });
-            Array(Number(localStorage.getItem('totalPokeFarm'))).fill(0).forEach((el, index) => {
-                const loadedPoke = JSON.parse(localStorage.getItem(`pokeFarm${index}`));
+            Array(Number(localStorage.getItem('othertotalPokeFarm'))).fill(0).forEach((el, index) => {
+                const loadedPoke = JSON.parse(localStorage.getItem(`otherpokeFarm${index}`));
                 if (loadedPoke) {
                     const pokeName = loadedPoke[0];
                     const exp = loadedPoke[1];
@@ -526,63 +526,63 @@ export default (lastSave, appModel) => {
                     pokeFarm.push(new Poke(pokeByName(pokeName), false, Number(exp), shiny, caughtAt, prestigeLevel, appliedVitamins));
                 }
             });
-            const pinnedStorage = JSON.parse(localStorage.getItem('pinnedStorage'));
+            const pinnedStorage = JSON.parse(localStorage.getItem('otherpinnedStorage'));
             appModel.$store.commit('pokemon/load', {
                 party, storage, pinnedStorage, pokeFarm,
             });
 
-            if (JSON.parse(localStorage.getItem('ballsAmount'))) {
-                this.ballsAmount = JSON.parse(localStorage.getItem('ballsAmount'));
+            if (JSON.parse(localStorage.getItem('otherballsAmount'))) {
+                this.ballsAmount = JSON.parse(localStorage.getItem('otherballsAmount'));
             }
-            if (JSON.parse(localStorage.getItem('pokedexData'))) {
-                appModel.$store.commit('pokedex/loadData', JSON.parse(localStorage.getItem('pokedexData')));
+            if (JSON.parse(localStorage.getItem('otherpokedexData'))) {
+                appModel.$store.commit('pokedex/loadData', JSON.parse(localStorage.getItem('otherpokedexData')));
             }
-            if (JSON.parse(localStorage.getItem('statistics'))) {
-                const loadedStats = JSON.parse(localStorage.getItem('statistics'));
+            if (JSON.parse(localStorage.getItem('otherstatistics'))) {
+                const loadedStats = JSON.parse(localStorage.getItem('otherstatistics'));
                 this.statistics = { ...this.statistics, ...loadedStats };
             }
-            if (JSON.parse(localStorage.getItem('statisticsRequirements'))) {
-                this.statisticsRequirements = JSON.parse(localStorage.getItem('statisticsRequirements'));
+            if (JSON.parse(localStorage.getItem('otherstatisticsRequirements'))) {
+                this.statisticsRequirements = JSON.parse(localStorage.getItem('otherstatisticsRequirements'));
             }
-            if (JSON.parse(localStorage.getItem('settings'))) {
-                this.settings = JSON.parse(localStorage.getItem('settings'));
+            if (JSON.parse(localStorage.getItem('othersettings'))) {
+                this.settings = JSON.parse(localStorage.getItem('othersettings'));
             }
-            if (JSON.parse(localStorage.getItem('badges'))) {
-                this.badges = JSON.parse(localStorage.getItem('badges'));
+            if (JSON.parse(localStorage.getItem('otherbadges'))) {
+                this.badges = JSON.parse(localStorage.getItem('otherbadges'));
             }
-            if (JSON.parse(localStorage.getItem('wins'))) {
-                this.wins = JSON.parse(localStorage.getItem('wins'));
+            if (JSON.parse(localStorage.getItem('otherwins'))) {
+                this.wins = JSON.parse(localStorage.getItem('otherwins'));
             }
-            if (JSON.parse(localStorage.getItem('events'))) {
-                this.events = JSON.parse(localStorage.getItem('events'));
+            if (JSON.parse(localStorage.getItem('otherevents'))) {
+                this.events = JSON.parse(localStorage.getItem('otherevents'));
             }
-            if (JSON.parse(localStorage.getItem('unlocked'))) {
-                const loadedUnlocked = JSON.parse(localStorage.getItem('unlocked'));
+            if (JSON.parse(localStorage.getItem('otherunlocked'))) {
+                const loadedUnlocked = JSON.parse(localStorage.getItem('otherunlocked'));
                 this.unlocked = { ...this.unlocked, ...loadedUnlocked };
             }
-            if (JSON.parse(localStorage.getItem('currencyAmount'))) {
-                this.currencyAmount = JSON.parse(localStorage.getItem('currencyAmount'));
+            if (JSON.parse(localStorage.getItem('othercurrencyAmount'))) {
+                this.currencyAmount = JSON.parse(localStorage.getItem('othercurrencyAmount'));
             }
-            if (JSON.parse(localStorage.getItem('defeatedWith'))) {
-                this.defeatedWith = JSON.parse(localStorage.getItem('defeatedWith'));
+            if (JSON.parse(localStorage.getItem('otherdefeatedWith'))) {
+                this.defeatedWith = JSON.parse(localStorage.getItem('otherdefeatedWith'));
             }
-            if (JSON.parse(localStorage.getItem('megaStones'))) {
-                this.megaStones = JSON.parse(localStorage.getItem('megaStones'));
+            if (JSON.parse(localStorage.getItem('othermegaStones'))) {
+                this.megaStones = JSON.parse(localStorage.getItem('othermegaStones'));
             }
-            if (JSON.parse(localStorage.getItem('evoStones'))) {
-                this.evoStones = JSON.parse(localStorage.getItem('evoStones'));
+            if (JSON.parse(localStorage.getItem('otherevoStones'))) {
+                this.evoStones = JSON.parse(localStorage.getItem('otherevoStones'));
             }
-            if (JSON.parse(localStorage.getItem('battleItems'))) {
-                this.battleItems = JSON.parse(localStorage.getItem('battleItems'));
+            if (JSON.parse(localStorage.getItem('otherbattleItems'))) {
+                this.battleItems = JSON.parse(localStorage.getItem('otherbattleItems'));
             }
-            if (JSON.parse(localStorage.getItem('vitamins'))) {
-                this.vitamins = JSON.parse(localStorage.getItem('vitamins'));
+            if (JSON.parse(localStorage.getItem('othervitamins'))) {
+                this.vitamins = JSON.parse(localStorage.getItem('othervitamins'));
             }
-            if (JSON.parse(localStorage.getItem('currentBoostedRoamer'))) {
-                this.currentBoostedRoamer = JSON.parse(localStorage.getItem('currentBoostedRoamer'));
+            if (JSON.parse(localStorage.getItem('othercurrentBoostedRoamer'))) {
+                this.currentBoostedRoamer = JSON.parse(localStorage.getItem('othercurrentBoostedRoamer'));
             }
-            if (JSON.parse(localStorage.getItem('secretCodes'))) {
-                this.secretCodes = JSON.parse(localStorage.getItem('secretCodes'));
+            if (JSON.parse(localStorage.getItem('othersecretCodes'))) {
+                this.secretCodes = JSON.parse(localStorage.getItem('othersecretCodes'));
             }
         },
         loadFromString: function (_saveData) {

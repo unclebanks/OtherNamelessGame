@@ -83,7 +83,7 @@ if (process.env.NODE_ENV === 'development') {
 Object.assign(window, globals);
 
 // load old save data
-if (localStorage.getItem('totalPokes') !== null) {
+if (localStorage.getItem('othertotalPokes') !== null) {
     player.loadPokes();
     dom.refreshCatchOption(player.settings.catching);
     userInteractions.changeRoute(player.settings.currentRouteId);
