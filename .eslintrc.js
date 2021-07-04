@@ -1,0 +1,57 @@
+module.exports = {
+    env: {
+        browser: true,
+        es2021: true,
+    },
+    extends: [
+        'plugin:vue/vue3-recommended',
+        'plugin:@typescript-eslint/recommended',
+        'airbnb-base',
+    ],
+    parser: 'vue-eslint-parser',
+    parserOptions: {
+        parser: '@typescript-eslint/parser',
+        ecmaVersion: 'esnext',
+        sourceType: 'module',
+    },
+    plugins: [
+        'vue',
+    ],
+    settings: {
+        'import/resolver': {
+            'node': {
+                'extensions': ['.js', '.jsx', '.ts', '.tsx', '.vue'],
+            },
+        },
+    },
+    rules: {
+        indent: ['error', 4],
+        'quote-props': 'off',
+        'func-names': 'off',
+        'object-shorthand': 'off',
+        'no-plusplus': 'off',
+        'eqeqeq': 'off',
+        'max-len': 'off',
+        'prefer-destructuring': 'off',
+        'no-restricted-syntax': 'off',
+        'guard-for-in': 'off',
+        'no-underscore-dangle': 'off',
+        'no-param-reassign': 'off',
+        'no-alert': 'off',
+        'consistent-return': 'off',
+        'no-shadow': 'off',
+        'no-unused-vars': 'off',
+        'no-return-assign': 'off',
+        'no-unused-expressions': 'off',
+        'radix': 'off',
+        'no-mixed-operators': 'off',
+        'no-else-return': 'off',
+        'camelcase': 'off',
+        'no-restricted-properties': 'off',
+        'import/no-extraneous-dependencies': 'off',
+        '@typescript-eslint/no-empty-function': ['off'],
+        '@typescript-eslint/no-var-requires': ['off'],
+        'import/extensions': 'off',
+    },
+    ignorePatterns: ['!.config'],
+};
