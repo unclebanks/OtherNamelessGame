@@ -86,17 +86,17 @@ class Town {
             kanto: [
                 {
                     name: 'Pokeball',
-                    pokecoins: 100,
+                    pokecoins: 10,
                     ball: 'pokeball',
                 },
                 {
                     name: 'Greatball',
-                    pokecoins: 500,
+                    pokecoins: 250,
                     ball: 'greatball',
                 },
                 {
                     name: 'Ultraball',
-                    pokecoins: 1000,
+                    pokecoins: 500,
                     ball: 'ultraball',
                 },
                 /*
