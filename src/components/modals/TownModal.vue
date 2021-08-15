@@ -16,7 +16,7 @@
         </button><br>
         <button
           id="profButton"
-          onclick="userInteractions.checkProf()"
+          onclick="userInteractions.profOakLab()"
           class="button"
         >
           PROF

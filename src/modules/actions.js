@@ -177,6 +177,10 @@ export default (player, combatLoop, enemy, town, story, appModel) => {
         justTestStuff: function () {
             alert('Nothing is here yet.');
         },
+        profOakLab: function () {
+            closeModal(document.getElementById('townModal'));
+            openModal(document.getElementById('achievementsModal'));
+        },
         enablePokeListAutoSort: function () {
             player.settings.autoSort = $('#autoSort').checked;
             // hide or show sort dropdowns

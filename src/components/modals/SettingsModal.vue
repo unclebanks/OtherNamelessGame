@@ -37,16 +37,19 @@
           id="newCaughtNotification"
           type="checkbox"
           class="mr-1"
+          checked
         ><label for="newCaughtNotification">New Caught</label><br>
         <input
           id="oldCaughtNotification"
           type="checkbox"
           class="mr-1"
+          checked
         ><label for="oldCaughtNotification">Old Caught</label><br>
         <input
           id="missCatchNotification"
           type="checkbox"
           class="mr-1"
+          checked
         ><label for="missCatchNotification">Miss Catch</label>
       </p>
 

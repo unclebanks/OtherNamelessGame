@@ -18,12 +18,12 @@ export default (player, enemy, combatLoop, Poke) => {
         },
         stories: {
             firstPoke: function () {
-                const title = 'NoNamePokemonGame';
+                const title = 'OtherNamelessPokemonGa,e';
                 let storyHTML = '<p>Hello there and welcome!</p>';
-                storyHTML += '<p>My name is OAK! People call me the POKEMON PROF!</p>';
-                storyHTML += '<p>This world is inhabited by creatures called POKEMON!</p>';
-                storyHTML += '<p>For some people POKEMON are pets. Others use them for fights.</p>';
-                storyHTML += '<p>Myself... I study POKEMON as a profession and would like to as you for help.</p>';
+                storyHTML += '<p>My name is Samuel Oak! People call me the POKEMON PROF!</p>';
+                storyHTML += '<p>I have asked you to come to assist me in gathering information on POKEMON</p>';
+                storyHTML += '<p>As you go forth on your journey please do send me a lot of POKEMON to research.</p>';
+                storyHTML += '<p>The more that you send me the more places you will be able to go and POKEMON you will be able to see.</p>';
                 storyHTML += '<p>First, pick your partner POKEMON and go forth!</p>';
                 storyHTML += `<p><img src="${Story.helpers.getPokeImg(1)}" onclick="story.helpers.selectFirstPoke(1)">`;
                 storyHTML += `<img src="${Story.helpers.getPokeImg(5)}" onclick="story.helpers.selectFirstPoke(5)">`;

@@ -64,13 +64,13 @@
     ><img
       class="catchcoins coinIcon"
       src="assets/images/currency/CatchCoin.png"
-    ></span> CatchCoins: <span id="catchCoins">0</span><br>
+    ></span> ResearchCoins: <span id="catchCoins">0</span><br>
     <span
       id="battleC"
       title="BattleCoins"
     ><img
       class="battlecoins coinIcon"
       src="assets/images/currency/BattleCoin.png"
-    ></span> BattleCoins: <span id="battleCoins">0</span><br><br>
+    ></span> ShinyCoins: <span id="battleCoins">0</span><br><br>
   </div>
 </template>

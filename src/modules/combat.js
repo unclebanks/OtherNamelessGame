@@ -268,18 +268,17 @@ export default (player, enemy) => {
                         player.addCatchCoins(gainCatchCoins);
                         if (player.hasPokemonLike(enemy.activePoke())) {
                             if (dom.checkConfirmed('#oldCaughtNotification')) {
-                                notify(`You caught ${enemy.activePoke().pokeName()}`);
+                                notify(`You sent ${enemy.activePoke().pokeName()} to Prof. Oak.`);
                             }
                         }
                         if (!player.hasPokemonLike(enemy.activePoke())) {
-                            player.addPoke(enemy.activePoke());
                             if (dom.checkConfirmed('#newCaughtNotification')) {
-                                notify(`You caught ${enemy.activePoke().pokeName()}`);
+                                notify(`You sent ${enemy.activePoke().pokeName()} to Prof. Oak.`);
                             }
                         }
-                        player.addPokedex(enemy.activePoke().pokeName(), (enemy.activePoke().shiny() ? POKEDEXFLAGS.ownShiny : POKEDEXFLAGS.ownNormal));
                         if (enemy.activePoke().shiny()) {
                             player.statistics.shinyCaught++;
+                            player.addBattleCoins(gainCatchCoins * 2);
                         } else {
                             player.statistics.caught++;
                         }
